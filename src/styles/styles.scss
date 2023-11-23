@@ -1,0 +1,573 @@
+@use './variables.scss';
+$tamanno: 7.25em;
+$tamanoLogo: 42px;
+body{
+  // background-color: variables.$black;
+  // color: variables.$white;
+  display: grid;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 90vw;
+  display: grid;
+  gap: 2em;
+  padding: .5em;
+  place-items: start;
+}
+h2{
+  font-weight: 600;
+}
+p{
+  font-size: .8em;
+}
+.nav{
+  background-color: variables.$white;
+  margin: 0;
+  padding: 0;
+  top: 0;
+}
+.nav-mobile{
+  @include variables.flexi();
+  font-size: .8em;
+  article{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:focus{
+      font-size: 1.2em;
+    }
+  }
+  .mobile-menu{
+    font-size: 1.5em;
+    cursor: pointer;
+    &:hover{
+      opacity: 80%;
+      font-size: 1.6em;
+      transition: all .5s ease-in-out;
+    }
+  }
+
+  .options{
+    position: fixed;
+    bottom: 0;
+    width: 50%;
+    right: 0;
+    height: 100vh;
+    z-index: 100;
+    color: variables.$white;
+    background-color:variables.$black2;
+    transform: translateX(100%);
+    transition: transform 1s ease-in-out;
+    ion-icon{
+      font-size: 2em ;
+      cursor: pointer;
+      border-radius: 20px;
+      box-shadow: 0 0 2px 2px variables.$black;
+      &:hover{
+        font-size: 2.1em;
+        transition: all 1s ease-in;
+      }
+    }      
+  }
+}
+.AppLogo{
+    @include variables.largeImage($largo: $tamanoLogo);
+    img{
+        // @include variables.neo($color: variables.$black, $contrastColor: variables.$black2);
+        border-radius: 50%;
+    }
+}
+.options-ul{
+  z-index: 300;
+  list-style: none;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 10px;
+  font-size: 1em;
+  li{
+    @include variables.buttonThing()
+    }
+    
+  }
+
+
+.active{
+  transform: translateX(0%) !important;
+  transition: all 1s ease-in-out;
+}
+.inactiveText{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 1s ease-in;
+}
+
+
+.nav-web{
+  display: none;
+}
+
+// Comenzando con el componente del header 
+
+.header{
+  p{
+    color: variables.$blue;
+  }
+  h2{
+    font-weight: 600;
+  }
+  figure{
+    @include variables.largeImage($largo: 100%, $fiti: fill);
+    margin: 0;
+    height: 120px;
+    img{
+      border-radius: 10px;
+
+    }
+  }
+}
+
+//emotion component
+.emotion{
+  p{
+    color: variables.$gray;
+  }
+}
+.emotion-contact{
+  display: grid;
+  grid-template-columns: 5em 3em;
+  gap: 5px;
+  color: variables.$gray;
+  label{
+    font-size: .6em;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  input[type="email"]{
+    grid-column-start: 1; 
+    grid-row-start: 2;
+    grid-column-end: 1;
+    grid-row-end: 2;
+    outline: none;
+    background-color: variables.$white2;
+    border: solid 1px variables.$gray;
+    &:active{
+      outline: none;
+    }
+    &:focus{
+      
+      box-shadow: 0 0 5px 2px variables.$black;
+    }
+  }
+  input[type="submit"]{
+    grid-row-start: 2;
+    grid-column-start: 2;
+    background-color: variables.$blue;
+    color: variables.$white;
+    border: 1px solid variables.$blue;
+    padding: 5px;
+    border-radius: 2px;
+    &:hover{
+      opacity: 70%;
+      cursor: pointer;
+    }
+  }
+}
+.services{
+  .services-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+    $i: 1;
+    @while $i < 4{
+      .services#{$i}{
+        $newColor: map-get($map: variables.$servicesColor, $key: "color" + $i) ;
+        ion-icon{
+          background-color: map-get($map: variables.$servicesColor, $key: "color" + $i );
+        }
+        // @if $newColor == variables.$blue{
+        //   color: aqua;
+        // }@else if $newColor == variables.$red{
+        //   background-color: beige;
+        //   box-shadow: inset 5px 20px 5px $newColor;
+        // }@else{
+        //   color: blue($color: #000000);
+        // }
+
+      }
+       
+      $i: $i + 1;
+    }
+    .service{
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center ;
+      @include variables.neo($neo: 10px);
+      p{
+        width: 80%;
+        text-align: justify;
+      } 
+      button{
+        background-color: variables.$white2;
+        color: variables.$gray;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        &:hover{
+          background-color: variables.$golden;
+          color: variables.$white;
+          transition: all .3s ease-in;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.desing{
+  width: 100vw;
+  & >  button:last-of-type{
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    width: 7em;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+    a{
+      color: variables.$blue  ;
+      text-decoration: none;
+    }
+    &:hover{
+      cursor: pointer;
+      background-color: variables.$blue;
+      transition: all .5s ease-in;
+      a{
+        color: variables.$white;
+        transition: all .5s ease-in;
+
+      }
+    }
+  }
+}
+// Products 
+.proudct-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  width: 100vw;
+  gap: 1em;
+  .desing-content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h3{
+      width: 300px ;
+      display: inline;
+    }
+  }
+  .proudct{
+    margin: .5em 0;
+    img{
+    border-radius: 20px;
+  }
+  figure{
+    margin: 0;
+    @include variables.largeImage($largo: 95vw);
+    height: calc(95vw / 2);
+  }
+    .produc-description{
+      display: flex;
+      align-items: center;
+      flex-flow: column wrap;
+      justify-content: center;
+      p{
+        max-width: 300px !important;
+        text-wrap: nowrap;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 20px;
+        transition: all 1s ease-out; 
+        &:hover{
+          background-color: variables.$white2;
+        }
+      }
+      button{
+        display: block;
+        align-self: flex-end;
+        justify-self: flex-end;
+      }
+    }
+    // division y espacio del texto de los comite en mobile 
+  }
+  button{
+    color: variables.$white;
+    background-color: variables.$golden;
+    &:hover{
+      outline: none;
+      background-color: variables.$black;
+      color: variables.$golden;
+      transition: all .4s ease-in-out;
+    }
+  }
+}
+.meetTeam{
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column wrap;
+  width: 90vw;
+  .meetTeam-message{
+    display: flex;
+    flex-flow: column wrap;
+    @include variables.neo();
+    h5{
+      color: map-get($map: variables.$servicesColor, $key: "color2" );
+      font-size: (variables.$size * .8);
+    }
+    h2{
+      margin: 0;
+      padding: 0;
+    }
+    p{
+      font-size: (variables.$size * .8);
+      width: (variables.$size * 16);
+    }
+  }
+  .meetTeam-team{
+    display: grid;
+    place-items: center;
+    grid-template-areas: 
+    "person3 person1"
+    "person3 person2"
+      ;
+    width: 50vw;
+      $number: 1;
+      @while $number < 4{
+        figure.person#{$number}{
+        @include variables.WHMax($large: ($tamanno * 1.2));
+        background-image: url(./assets/edie-homepage-master/person#{$number}.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        padding: 4px;
+        margin: ($tamanno *.15);
+        @include variables.neo();
+        @if($number == 3){
+          grid-area: person3;
+          align-self: center;
+        }@else if($number == 2){
+          @include variables.WHMax($large: ($tamanno));
+          grid-area: person2;
+        }@else if($number == 1){
+          @include variables.WHMax($large: calc($tamanno / 1.2)) ;
+          grid-area: person1;
+        }
+      }
+      $number: ($number + 1);
+    }
+  }
+}
+.message{
+  display: flex;
+  flex-flow: column wrap;
+  h3{
+    color: variables.$gray;
+    font-weight: 700;
+    max-width: 400px;
+  }
+  .message-porfile{
+    display: flex;
+    flex-flow: row nowrap;
+    figure{
+      @include variables.largeImage($largo: 70px);
+      img{
+        @include variables.neo();
+      }
+    }
+    & > div:first-of-type{
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      font-size: calc(variables.$size * .8);
+      h2{
+        margin: 0;
+      }
+    }
+  }
+}
+.footer{
+  color: variables.$white;
+  background-color: variables.$black2;
+  min-width: 99vw;
+  margin: 0;
+  padding: 2em 1.6em;
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  flex-flow: column wrap;
+  ul{
+    @extend .options-ul;
+    padding-left: 0;
+  }
+  .social-media{
+    display: flex;
+    flex-flow: column wrap;
+    .icons{
+      $index: 1;
+      ion-icon{
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1em;
+        padding: 6px;
+      }
+      @while $index < 4{
+        ion-icon:nth-child(#{$index}){
+          &:hover{
+            @if($index == 1){
+              background: rgb(249,206,52);
+background: linear-gradient(0deg, rgba(249,206,52,1) 0%, rgba(232,31,114,1) 48%);
+            }@else{
+              background-color: variables.$blue;
+            }
+            color: variables.$white;
+            border-radius: 10px;
+            transition: all 1s ease-in-out;
+          }
+        $index: calc($index + 1);
+        }
+      }
+    }
+  }
+  .emotion-contact{
+    display: flex;
+    flex-flow: column wrap;
+    width: 30px;
+    margin-top: 1em;
+    label{
+      height: 20px;
+
+    }
+    div:first-of-type{
+      display: flex;
+      width: fit-content;
+      padding: .5em;
+      border-radius: 20px;
+      background-color: variables.$white2;
+      input[type="email"]{
+        border: none;
+      }
+      input[type="submit"]{
+        border-radius: 20px;
+      }
+      
+    }
+  }
+  left: 0;
+}
+.creator{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  display: flex;
+
+  align-self: center;
+  justify-content: center;
+  gap: 5px;
+  a{
+    color: variables.$gray;
+  }
+}
+// medita queris 
+
+@media screen and (min-width: 600px) {
+    body{
+        padding-left: 2em;
+    }
+  .nav-mobile{
+    display: none;
+  }
+  .nav-web{
+    @include variables.flexi();
+    ul{
+      @include variables.flexi($whidth: 40em);
+      list-style: none;
+      @include variables.buttonThing($color: variables.$black);
+      font-size: .8em;
+
+    }
+  }
+  .AppLogo{
+    @include variables.WHMax($large: ($tamanoLogo * 2))
+}
+  .header{
+    figure{
+      @include variables.largeImage($largo: 95vw, $fiti: fill);
+      margin: 0;
+      height: 220px;
+    }
+  }
+  .emotion{
+    position: relative;
+    left: calc(1em * 12);
+    p{
+      width: 18em;
+    }
+  }
+  .services{
+    .services-container{
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
+
+    }
+  }
+
+  .proudct-container{
+    gap: 1em;
+    .proudct{
+      width: 100%;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 1em;
+      .proudct-container{
+        display: flex;
+        flex-flow: column wrap;
+        position: relative;
+        height: 300px;
+      }
+      p, h3{
+        align-self: flex-start;
+        width: 200px;
+      }
+      figure{
+        cursor: pointer;
+        $sizeFigureNow: 35em;
+        width: $sizeFigureNow;
+        height: calc($sizeFigureNow / 2) ;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+    }
+  }
+  .proudct{
+    display: flex;
+    p{
+      width: 300px;
+
+    }
+  }
+  .meetTeam{
+    flex-flow: row nowrap;
+    $tamanno: 16.75em;
+  }
+  .footer{
+    flex-flow: row nowrap;
+    justify-content: space-evenly;    
+  }
+}
