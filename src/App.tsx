@@ -3,7 +3,18 @@ import Somos from './components/Ediciones/Somos';
 import Comites from './components/comites/comites';
 import Inscripcciones from './components/Inscripcciones/Inscripcciones';
 import { Staff } from './components/Staff/staff';
+import Footer from './components/Footer/footer';
+import AOS from 'aos';
+import {useEffect} from 'react';
+import 'aos/dist/aos.css';
 export default function App() {
+  useEffect(()=>{
+    AOS.init({
+      delay: 300,
+      duration: 1000,
+      easing: 'ease-in-out-quart',
+    })
+  }, [])
   return (
     <>
     <AppNav />
@@ -24,33 +35,8 @@ export default function App() {
         </div>
       </div>
       <div>
-        <footer  data-aos="zoom-in" className="footer">
-          <ul>
-            <li><button><a href="">Home</a></button></li>
-            <li><button><a href="">Services</a></button></li>
-            <li><button><a href="">Our Works</a></button></li>
-            <li><button><a href="">Clients</a></button></li>
-            <li><button><a href="">Contact</a></button></li>
-          </ul>
-          <div className="social-media">
-            <h4>Eddie</h4>
-          <div className="icons">
-            {/* {/* <ion-icon name="logo-instagram"></ion-icon> */}
-            {/* {/* <ion-icon name="logo-linkedin"></ion-icon> */} 
-            {/* {/* <ion-icon name="logo-twitter"></ion-icon> */} 
-          </div>
-          </div>
-          <form action="" className="emotion-contact">
-            <label htmlFor="emotion-input">Want us to contact you</label>
-            <div>
-              <input type="email" required id="emotion-input" placeholder="Email" />
-              <input type="submit" value="Join" />
-
-          </div>
-          </form>
-          <span className="creator">Created By <a href="https://github.com/CH19/">CH19</a> - <a href="devchallenges.io">devchallenges.io</a></span>
-        </footer>
       </div>
+      <Footer />
     </>
   )
 }
