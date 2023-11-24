@@ -9,7 +9,6 @@ body{
   width: 90vw;
   display: grid;
   gap: 2em;
-  padding: .5em;
   place-items: start;
 }
 h2{
@@ -103,6 +102,18 @@ p{
 
 .nav-web{
   display: none;
+}
+
+// Estilos del carrousel 
+.carrouselContainer{
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 0;
+  background-color: variables.$black2;
 }
 
 // Comenzando con el componente del header 
@@ -227,29 +238,16 @@ p{
 }
 .desing{
   width: 100vw;
-  & >  button:last-of-type{
-    border: none;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-around;
-    width: 7em;
-    align-items: center;
-    padding: 5px;
-    border-radius: 10px;
-    a{
-      color: variables.$blue  ;
-      text-decoration: none;
-    }
-    &:hover{
-      cursor: pointer;
-      background-color: variables.$blue;
-      transition: all .5s ease-in;
-      a{
-        color: variables.$white;
-        transition: all .5s ease-in;
+  
+}
+.desing-content{
+  padding-left: 2em;
+  width: 90vw;
+  h3{
+    width: 90%;
+    padding-bottom: .5em;
+    border-bottom: 3px solid variables.$golden;
 
-      }
-    }
   }
 }
 // Products 
@@ -485,7 +483,7 @@ background: linear-gradient(0deg, rgba(249,206,52,1) 0%, rgba(232,31,114,1) 48%)
 
 @media screen and (min-width: 600px) {
     body{
-        padding-left: 2em;
+      gap: 0;
     }
   .nav-mobile{
     display: none;

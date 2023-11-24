@@ -1,4 +1,4 @@
-import { Comite, Ediciones } from "./Data";
+import { Comite, Ediciones, Option } from "./Data";
 // https://ibb.co/TPmXZjL
 // https://ibb.co/b7s71pM
 // https://ibb.co/XS821d4
@@ -35,13 +35,8 @@ export const comites: Comite[] = [
     },
     {
         name: 'Procesos Independendistas del Siglo XIX',
-        description: `Foto del perfil de spmun_
-        CRISIS HISTÓRICA: CÁMARA PATRIÓTICA
-        PROCESOS INDEPENDENTISTAS DEL SIGLO XIX
-        Modalidad: Mixto Individual.
-        
-        Es el inicio del siglo XIX el mundo esta cambiando, las consecuencias que dejo la independencia de Estados Unidos y Haití, junto con los movimientos revolucionarios liderados por Napoleón Bonaparte en Europa están teniendo su impacto en el Imperio Español la nación mas poderosa del siglo pasado, impacto que se ha trasladado a sus virreinatos de Nueva España y Perú. 
-        En el mismo periodo en la capitanía general de Venezuela dos jóvenes llamados Simón Bolívar y Francisco de Miranda declaran la independencia de este territorio y la necesidad inminente de que con patriotismo se consolide una república independiente de la corona española.
+        description: `        
+        Es el inicio del siglo XIX en la capitanía general de Venezuela dos jóvenes llamados Simón Bolívar y Francisco de Miranda declaran la independencia de este territorio y la necesidad inminente de que con patriotismo se consolide una república independiente de la corona española.
         En este comité tendrás la tarea de luchar contra la corona española y buscar la independencia de los territorios Americanos donde la diplomacia, el patriotismo, el liderazgo, la traición, la convicción y las decisiones complejas serán los protagonistas ¿Aceptas el reto? `,
         img: 'https://i.ibb.co/WsksnS4/CRISIS-LOGO.png        ',
         itsClosed: false ,
@@ -64,8 +59,72 @@ export const DataQuienesSomos: Ediciones[] = [
         el principio de soberania, el combate contra los narco estados, el periodismo internacional, y la independencia de la corona española dejaran mucho de que debatir. Ya seas 
         principiante o veterano, si te apasiona una experiencia inmersiva y muy atractiva en el mundo de los asuntos internacionales, la resolución de problemas y la diplomacia, SPMUN es la conferencia para ti.
         `
-
 }
-
-
 ]
+
+// enlaces para visualizar la data 
+// https://ibb.co/mv7Td3M
+// https://ibb.co/KKc5yyg
+// https://ibb.co/N7JcYt5
+// https://ibb.co/YTnwJP0
+// https://ibb.co/BfQVtDv
+// https://ibb.co/xJMQFML
+// https://ibb.co/Cbby9bT
+// https://ibb.co/6yWW511
+export const carrouselImg: Option[] = [
+    {
+        text: '19',
+        link: 'https://i.ibb.co/sJxzcbW/Nueva-Edicion.jpg'
+    },
+    {
+        text: '19',
+        link:'https://i.ibb.co/51s5FZy/Comining-soon.jpg'
+    },
+    {
+        text: 'Premio SVP',
+        link: 'https://i.ibb.co/8Xf18Nq/Md-Colegial.jpg'
+    },
+    {
+        text: 'Team SVP',
+        link: 'https://i.ibb.co/Pr66899/SP-Preparation.jpg',
+    },
+    {
+    text: 'Exposicion SPMUN',
+    link: 'https://i.ibb.co/q0wjhvP/Edicion19.jpg'
+    },
+    {
+        text: 'Pracitca-SP',
+        link: 'https://i.ibb.co/RzCWjCb/Practice-1.jpg'
+    }   ,
+    {
+        text: 'SPMUN 2019',
+        link: 'https://i.ibb.co/7nnDpn6/S0-19-2.jpg',
+    },
+    {
+        text: '19',
+        link: 'https://i.ibb.co/kGwgxnz/Nueva-Edicion-Fehcas.jpg'
+    },
+]
+
+
+
+
+
+
+
+
+// objeto y metoods para tener un arreglo con los nombres de tdas las imagenes y elementos organizados 
+type returnDataType = Comite[]; 
+const returnData = (arr: returnDataType): Option[] => {
+    const newData: Option[] = arr.map(element => {
+        return {
+            text: element.name, link: element.img
+        }
+    });
+   return newData
+}
+export const imagenesData: Option[] = [...returnData(comites),
+    {
+        text: 'Ganando Md',
+        link: 'sdfsdf'
+    }];
