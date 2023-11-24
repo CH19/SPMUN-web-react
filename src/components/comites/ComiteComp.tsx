@@ -12,7 +12,7 @@ export default function ComiteComp(props: ComiteProps){
           <figure><img src={comitesOriginal.img.trim()} alt={`${comitesOriginal.name} image`} /></figure>
         <div className="produc-description">
         <h3>{comitesOriginal.name}</h3>
-       <p onDoubleClick={(event)=> {
+       <p onClick={(event)=> {
         // se coloca el as para que el event.target se comporte como un element html 
         const target = event.target as HTMLElement;
         if(target){

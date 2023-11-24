@@ -1,6 +1,9 @@
 @use './variables.scss';
 $tamanoLogo: 42px;
 $tamanno: 7.5em;
+:root{
+  background-color: #fff;
+}
 body{
   // background-color: variables.$black;
   // color: variables.$white;

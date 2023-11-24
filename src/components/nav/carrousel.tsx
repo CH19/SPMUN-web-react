@@ -18,7 +18,7 @@ export default function Carrousel() {
 
 function Strucutre(props: Option){
     return (<>
-                <figure style={{width: '100%', height: '100%', background: 'red'}}>
+                <figure style={{width: '100%', height: '100%', backgroundColor: 'transparent'}}>
                     <img  style={{
                         width: '100%',
                         height: '100%',
