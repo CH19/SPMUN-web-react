@@ -4,7 +4,7 @@ import ComiteComp from "./ComiteComp"
 export default function Comites(){
     const [...newComites]: Comite[] = comites
     return (<>
-     <div className="desing">
+     <div className="desing" id="comites">
       <div className="desing-content">
         <h3>Comites</h3>
       </div>
