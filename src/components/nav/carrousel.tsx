@@ -1,4 +1,4 @@
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import 'react-responsive-carousel/lib/styles/carousel.css';
 import {Carousel} from 'react-responsive-carousel';
 import { Option } from '../../types/Data';
 import { carrouselImg } from '../../types/comites';
@@ -8,7 +8,7 @@ export default function Carrousel() {
     // const data = [1,2,3,4,5];
     return(<>
         <div className='carrouselContainer'>
-        <Carousel  infiniteLoop interval={3000} transitionTime={1000} width={`${innerWidth < 600 ? '90vw' : '500px'}`} ariaLabel='Hola' centerSlidePercentage={4} >               
+        <Carousel autoFocus autoPlay  infiniteLoop interval={3000} transitionTime={1000} width={`${innerWidth < 600 ? '90vw' : '500px'}`} ariaLabel='Hola' centerSlidePercentage={4} >               
         {newImgs.map(e => <Strucutre text={e.text} link={e.link} ></Strucutre>)}
 
         </Carousel>

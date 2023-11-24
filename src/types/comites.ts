@@ -107,7 +107,24 @@ export const carrouselImg: Option[] = [
 ]
 
 
+// Staff V edicion de SPMUN imagenes 
+// https://ibb.co/JxRZbfY
+// https://ibb.co/BcGjvSw
+// https://ibb.co/qDm2fH7
+export const StaffImages: Option[] = [
+    {
+        text: 'SG',
+        link: 'https://i.ibb.co/HBCYRkX/sg-v.jpg'
+    },{
+        text: 'SA',
+        link: 'https://i.ibb.co/B4Vk7Xh/SA-V.jpg',
+    }, 
+    {
+        text: 'SP',
+        link: 'https://i.ibb.co/wdp2XnB/SP-V.jpg'
+    }
 
+]
 
 
 
@@ -123,8 +140,4 @@ const returnData = (arr: returnDataType): Option[] => {
     });
    return newData
 }
-export const imagenesData: Option[] = [...returnData(comites),
-    {
-        text: 'Ganando Md',
-        link: 'sdfsdf'
-    }];
+export const imagenesData: Option[] = [...returnData(comites),...carrouselImg];

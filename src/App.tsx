@@ -1,6 +1,8 @@
 import AppNav from './components/nav/app-nav';
 import Somos from './components/Ediciones/Somos';
 import Comites from './components/comites/comites';
+import Inscripcciones from './components/Inscripcciones/Inscripcciones';
+import { Staff } from './components/Staff/staff';
 export default function App() {
   return (
     <>
@@ -8,18 +10,9 @@ export default function App() {
     {/* Aqui debe de ir el componente del carrousel  */}
     <Somos />
     <Comites />
-      <div data-aos="flip-up" className="meetTeam">
-        <div className="meetTeam-message">
-          <h5>Meet the team</h5>
-          <h2>We are  chilled <br/> and a laidback <br/> team</h2>
-          <p>Lorem ipsum dolor sit amet consectetur odio quia nesciunt velit reiciendis.</p>  
-        </div>
-        <div className="meetTeam-team">
-          <figure className="person1"></figure>
-          <figure className="person2"></figure>
-          <figure className="person3"></figure>
-        </div>
-      </div>
+    <Inscripcciones />
+    <Staff></Staff>
+  
       <div data-aos="flip-down" className="message">
         <h3>"Fast and  outsanding results. Edie understands their customer's needs. They have a young and talented team."</h3>
         <div className="message-porfile">
@@ -29,7 +22,6 @@ export default function App() {
             <p>The decorate Gatsby</p>
           </div>
         </div>
-       
       </div>
       <div>
         <footer  data-aos="zoom-in" className="footer">

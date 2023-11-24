@@ -1,6 +1,6 @@
 @use './variables.scss';
-$tamanno: 7.25em;
 $tamanoLogo: 42px;
+$tamanno: 7.5em;
 body{
   // background-color: variables.$black;
   // color: variables.$white;
@@ -306,12 +306,59 @@ p{
     background-color: variables.$golden;
     &:hover{
       outline: none;
-      background-color: variables.$black;
+      background-color: variables.$black2;
       color: variables.$golden;
       transition: all .4s ease-in-out;
     }
   }
 }
+
+// estilos del componente de inscripcciones
+.inscripcciones{
+  width: 100vw;
+  background-color: variables.$black2;
+  color: variables.$white2;
+  margin-bottom: 3em;
+  padding:  2em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  h4{
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .days{
+    color: variables.$golden;
+  }
+  p{
+    display: flex;
+    color: variables.$white2;
+    font-size: .7em;
+    width: 70%;
+    text-align: center;    
+    text-wrap: wrap; 
+  }
+  button{
+    background-color: transparent;
+    border: none;
+    color: variables.$golden;
+    border: 1px solid variables.$golden;
+    &:hover{
+      background-color: variables.$golden;
+      transition: all .5s ease-in-out;
+      a{
+        color: variables.$black2;
+      }
+      }
+    a{
+      text-decoration: none;
+      color: variables.$golden;
+    }
+  }
+}
+
+
 .meetTeam{
   display: flex;
   justify-content: space-around;
@@ -320,9 +367,9 @@ p{
   .meetTeam-message{
     display: flex;
     flex-flow: column wrap;
-    @include variables.neo();
+    @include variables.neo($neo: 1em);
     h5{
-      color: map-get($map: variables.$servicesColor, $key: "color2" );
+      color: variables.$golden;
       font-size: (variables.$size * .8);
     }
     h2{
@@ -343,15 +390,22 @@ p{
       ;
     width: 50vw;
       $number: 1;
+      @media screen and (max-width: 600px) {
+        $tamanno: 5em; 
+      }
       @while $number < 4{
         figure.person#{$number}{
         @include variables.WHMax($large: ($tamanno * 1.2));
-        background-image: url(./assets/edie-homepage-master/person#{$number}.png);
         background-repeat: no-repeat;
         background-size: 100%;
-        padding: 4px;
         margin: ($tamanno *.15);
         @include variables.neo();
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+        }
         @if($number == 3){
           grid-area: person3;
           align-self: center;
@@ -562,7 +616,9 @@ background: linear-gradient(0deg, rgba(249,206,52,1) 0%, rgba(232,31,114,1) 48%)
   }
   .meetTeam{
     flex-flow: row nowrap;
-    $tamanno: 16.75em;
+    
+    
+  
   }
   .footer{
     flex-flow: row nowrap;
