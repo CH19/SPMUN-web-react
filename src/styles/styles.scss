@@ -54,6 +54,7 @@ p{
     bottom: 0;
     width: 50%;
     right: 0;
+    top: 1em;
     height: 100vh;
     z-index: 100;
     color: variables.$white;
@@ -467,7 +468,7 @@ p{
   flex-flow: column wrap;
   ul{
     @extend .options-ul;
-    padding-left: 0;
+    padding-left: 0; 
   }
   .social-media{
     display: flex;
